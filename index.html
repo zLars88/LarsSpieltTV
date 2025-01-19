@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich</title>
+    <!-- Font Awesome für die Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Kopfzeile mit Banner-Bild -->
+    <header>
+        <img src="banner.png" alt="Banner" class="banner">
+        <!-- Menü-Button -->
+        <div class="menu-button" id="menu-button">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <!-- Navigationsmenü -->
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="stats.html">Statistiken</a></li>
+                <li><a href="projekte.html">Streams + Projekte</a></li>
+            </ul>
+        </nav>
+        <!-- Dark/Light Mode Switch -->
+        <div class="dark-mode-switch">
+            <!-- Checkbox für Toggle -->
+            <input type="checkbox" id="dark-mode-toggle">
+            <!-- Sichtbarer Schalter -->
+            <label for="dark-mode-toggle" class="switch-label">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
+            </label>
+            <!-- Text, der wechselt -->
+            <span class="switch-text">Darkmode</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Über mich</h2>
+        <div class="profile-container">
+            <img src="profile_picture.png" alt="Profilbild" class="profile-image">
+        </div>
+        <p>
+            Moin, ich bin Lars.  
+            Ich bin Content Creator im Bereich Gaming. <br> 
+            Wenn dir mein Content gefällt, dann folge mir gerne auf meinen Social-Media-Kanälen, <br>
+            um nichts mehr zu verpassen!
+        </p>
+    </section>
+
+    <section>
+        <h2><i class="fa-solid fa-share-alt"></i> Social Media</h2>
+        <ul class="social-links">
+            <li>
+                <a href="https://www.instagram.com/Lars.stkn" target="_blank">
+                    <i class="fab fa-instagram"></i> @Lars.stkn
+                </a>
+            </li>
+            <li>
+                <a href="https://www.twitch.tv/LarsSpieltTV" target="_blank">
+                    <i class="fab fa-twitch"></i> @LarsSpieltTV
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@LarsSpieltTV" target="_blank">
+                    <i class="fab fa-youtube"></i> @LarsSpieltTV
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@LarsSpieltTV" target="_blank">
+                    <i class="fab fa-tiktok"></i> @LarsSpieltTV
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Community-Links -->
+    <section id="community">
+        <h2><i class="fa-solid fa-users"></i> Community</h2>
+        <ul class="social-links">
+            <li>
+                <a href="https://discord.com" target="_blank">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </li>
+            <li>
+                <a href="https://open.spotify.com/playlist/4CFuTBVW3Hcl71sNgbf3Kq?si=ecb233db71a94503&pt=f179d38b9efdb63ed236a5ffb0908e7b" target="_blank">
+                    <i class="fa-brands fa-spotify"></i> Community Playlist
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Setup Bereich (unter Community) -->
+<section id="setup">
+    <h2><i class="fa-solid fa-cogs"></i> Setup</h2>
+    <ul class="setup-list">
+        <li><i class="fa-solid fa-microphone"></i> Tonor Q9</li>
+        <li><i class="fa-solid fa-tv"></i> Lenovo + MSI</li>
+        <li><i class="fa-solid fa-microchip"></i> AMD Ryzen 5 5600X</li>
+        <li><i class="fa-solid fa-mouse"></i> Razer Viper Ultimate</li>
+        <li><i class="fa-solid fa-headphones"></i> Hyper X Cloud Alpha 2</li>
+        <li><i class="fa-solid fa-cogs"></i> NVIDIA GeForce RTX 2060</li>
+        <li><i class="fa-solid fa-keyboard"></i> Corsair K70 mk.2 Low-Profile</li>
+        <li><i class="fa-solid fa-memory"></i> 32GB RAM (Corsair Vengeance RGB)</li>
+    </ul>
+    
+    <!-- Geizhals-Links -->
+    <div class="geizhals-links">
+        <a href="https://geizhals.de/wishlists/2112970" target="_blank">
+            <i class="fa-solid fa-laptop"></i> PC
+        </a>
+        <a href="https://geizhals.de/wishlists/2561588" target="_blank">
+            <i class="fa-solid fa-cogs"></i> Setup
+        </a>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 LarsSpieltTV</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const switchText = document.querySelector('.switch-text');
+
+        // Überprüfe den gespeicherten Dark Mode-Status
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+            toggle.checked = true;
+            switchText.textContent = 'Lightmode';
+        } else {
+            switchText.textContent = 'Darkmode';
+        }
+
+        // Event Listener für den Schalter
+        toggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                switchText.textContent = 'Lightmode';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                switchText.textContent = 'Darkmode';
+            }
+        });
+    });
+        // JavaScript für das Menü
+        const menuButton = document.getElementById('menu-button');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuButton.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

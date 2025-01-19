@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streams + Projekte</title>
+    <!-- Font Awesome für die Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Kopfzeile mit Banner-Bild -->
+    <header>
+        <img src="banner.png" alt="Banner" class="banner">
+        <!-- Menü-Button -->
+        <div class="menu-button" id="menu-button">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <!-- Navigationsmenü -->
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="stats.html">Statistiken</a></li>
+                <li><a href="projekte.html">Streams + Projekte</a></li>
+            </ul>
+        </nav>
+        <!-- Dark/Light Mode Switch -->
+        <div class="dark-mode-switch">
+            <!-- Checkbox für Toggle -->
+            <input type="checkbox" id="dark-mode-toggle">
+            <!-- Sichtbarer Schalter -->
+            <label for="dark-mode-toggle" class="switch-label">
+                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
+            </label>
+            <!-- Text, der wechselt -->
+            <span class="switch-text">Darkmode</span>
+        </div>
+    </header>
+
+    <!-- Streams Feld -->
+    <section>
+        <h2><i class="fa-solid fa-video"></i> Streams</h2>
+        <div class="content">
+            <!-- Wochenübersicht für Streams -->
+            <div class="week-schedule">
+                <div class="day">
+                    <h3>Montag</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Dienstag</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Mittwoch</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Donnerstag</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Freitag</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Samstag</h3>
+                    <p>Keine Streams</p>
+                </div>
+                <div class="day">
+                    <h3>Sonntag</h3>
+                    <p>Immer um 18:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projekte Feld -->
+    <section>
+        <h2><i class="fa-solid fa-project-diagram"></i> Projekte</h2>
+        <div class="content">
+            <!-- Tabelle für Projekte -->
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Projekt</th>
+                        <th>Spiel</th>
+                        <th>Beschreibung</th>
+                        <th>Fortschritt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Freizeitpark</td>
+                        <td>Minecraft</td>
+                        <td>Ich baue in Minecraft einen Freizeitpark mit einer guten Kombination aus Redstone und Commands</td>
+                        <td>
+                            <div class="progress-bar" data-progress="20%">
+                                <div class="progress" style="width: 20%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Diamant</td>
+                        <td>Rocket League</td>
+                        <td>In Rocket League den Diamant Rang bekommen</td>
+                        <td>
+                            <div class="progress-bar" data-progress="70%">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>100 Follower</td>
+                        <td>Twitch</td>
+                        <td>Die 100 Follower auf Twitch erreichen</td>
+                        <td>
+                            <div class="progress-bar" data-progress="34%">
+                                <div class="progress" style="width: 34%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Weitere Projekte können hier hinzugefügt werden -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LarsSpieltTV</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const switchText = document.querySelector('.switch-text');
+
+        // Überprüfe den gespeicherten Dark Mode-Status
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+            toggle.checked = true;
+            switchText.textContent = 'Lightmode';
+        } else {
+            switchText.textContent = 'Darkmode';
+        }
+
+        // Event Listener für den Schalter
+        toggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                switchText.textContent = 'Lightmode';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                switchText.textContent = 'Darkmode';
+            }
+        });
+    });
+
+        // JavaScript für das Menü
+        const menuButton = document.getElementById('menu-button');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuButton.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
